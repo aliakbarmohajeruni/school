@@ -1,1 +1,4 @@
 /vendor
+/public/images/courses/*
+/public/images/news/*
+/public/images/courses/profiles/*
