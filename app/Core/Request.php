@@ -35,4 +35,9 @@ class Request
     {
         return $_SERVER['REQUEST_METHOD'] == 'POST';
     }
+
+    public function hasFile($name)
+    {
+       return !empty($_FILES[$name]['name']);
+    }
 }

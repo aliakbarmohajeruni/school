@@ -30,6 +30,12 @@ function request($field = null) {
     return $request->input($field);
 }
 
+function _public($path = null)
+{
+    $DS  = DIRECTORY_SEPARATOR;
+    return __DIR__ . $DS .'..'. $DS .'public'. $DS . $path . $DS;
+}
+
 function flash() {
   return \App\Core\FlashMessage::instance();
 }
@@ -48,6 +54,25 @@ function validation($data , $rules)
    }
 
    return true;
+}
+
+function upload($name, $path, array $allowed = ['image/*']){
+
+  $handle = new \Verot\Upload\Upload($_FILES[$name]);
+  $image = '';
+  if ($handle->uploaded) {
+    $handle->file_name_body_pre = time().'_';
+    $handle->allowed = $allowed;
+    $handle->process(_public($path));
+    if (!$handle->processed) {
+      flash()->danger($handle->error);
+      return;
+    }
+    $image = $path .DIRECTORY_SEPARATOR. $handle->file_dst_name;
+    $handle->clean();
+  }
+  return $image;
+
 }
 
 function auth($graud = 'user')

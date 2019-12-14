@@ -35,8 +35,8 @@
 
       <i class="fa fa-caret-down"></i>
       <div class="dropdown-container">
-        <a href="#">لیست دوره ها</a>
-        <a href="#">افزودن دوره</a>
+        <a href="<?= ROOT ?>dashboard/courses">لیست دوره ها</a>
+        <a href="<?= ROOT ?>dashboard/courses/create.php">افزودن دوره</a>
       </div>
     </a>
     <a class="dropdown-btn"><span class="fa fa-newspaper-o"></span>اخبار
