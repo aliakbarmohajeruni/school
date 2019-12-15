@@ -47,9 +47,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="copyright-text">
-            <p>© 2018
-              <a href="#">DigiPro</a>. All rights reserved. Created by
-              <a href="#">AazzTech</a>
+            <p>
+              هدف مجموعه افزایش سطح کیفیت اموزش و ساختن راهی برای  ورود دانشجویان به بازار کار تخصصی است
             </p>
           </div>
 

@@ -15,15 +15,15 @@ use App\Models\News;
               <?php foreach ((new Course)->get() as $course): ?>
                 <div class="card col-md-3 p-0 mt_card">
                     <img src="<?= ROOT_PATH . $course->image ?>" class="card-img-top object-fit-cover" alt="<?= $course->title ?>">
-                    <div class="card-body p-2">
-                        <h6 class="card-title">
-                            <?= $course->title ?>
-                        </h6>
-                        <p class="card-text mt_card_text">
-                            <?= substr($course->body, 0, 200). '...' ?>
-                        </p>
-                        <a href="#" class="btn btn-danger btn-block">مشاهده دوره</a>
-                    </div>
+                    <div class="card-body d-flex flex-column bd-highlight">
+                        <div class="flex-sm-grow-1"><?= $course->title ?></div>
+                        <div class="body-course">
+                            <a href="#" class="btn btn-link ">مشاهده دوره</a>
+                            <p class="p-10">
+                                 <?= number_format($course->price) ?> تومان
+                            </p>
+                        </div>
+                      </div>
                 </div>
               <?php endforeach ?>
             </div>
