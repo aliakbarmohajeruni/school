@@ -14,41 +14,34 @@
 <body>
 
   <div class="sidenav">
-    <a href="<?= ROOT ?>dashboard/"><span class="fa fa-dashboard"></span>داشبورد</a>
-    <a class="dropdown-btn"><span class="fa fa-user"></span>مدرسان
-
-      <i class="fa fa-caret-down"></i>
+    <a href="<?= ROOT ?>dashboard/">داشبورد</a>
+    
+    <a class="dropdown-btn">مدرسان
       <div class="dropdown-container">
         <a href="<?= ROOT ?>dashboard/teachers">لیست مدرسین</a>
         <a href="<?= ROOT ?>dashboard/teachers/create.php">افزودن مدرس</a>
       </div>
     </a>
 
-    <a class="dropdown-btn"><span class="fa fa-users"></span>مدیریت کاربران
-
-      <i class="fa fa-caret-down"></i>
+    <a class="dropdown-btn">مدیریت کاربران
       <div class="dropdown-container">
         <a href="<?= ROOT ?>dashboard/users">لیست کاربران</a>
       </div>
     </a>
-    <a class="dropdown-btn"><span class="fa fa-certificate"></span>دوره های آموزشی
-
-      <i class="fa fa-caret-down"></i>
+    <a class="dropdown-btn">دوره های آموزشی
       <div class="dropdown-container">
         <a href="<?= ROOT ?>dashboard/courses">لیست دوره ها</a>
         <a href="<?= ROOT ?>dashboard/courses/create.php">افزودن دوره</a>
       </div>
     </a>
-    <a class="dropdown-btn"><span class="fa fa-newspaper-o"></span>اخبار
-
-      <i class="fa fa-caret-down"></i>
+    <a class="dropdown-btn">اخبار
       <div class="dropdown-container">
         <a href="#">لیست اخبار</a>
         <a href="#">افزودن اخبار</a>
       </div>
     </a>
 
-    <a href="#contact"><span class="fa fa-credit-card"></span>پرداختی</a>
+    <a href="#contact">پرداختی</a>
     <div class="mt_exit_panel my-4">
       <a class="btn btn-block btn-danger" href="<?=ROOT?>dashboard/logout.php">خروج از پنل</a>
     </div>
