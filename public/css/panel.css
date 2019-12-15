@@ -16,6 +16,9 @@ a:hover {
     font-family: 'Vazir' !important;
     font-weight: 300 !important;
 }
+.image-fit{
+  object-fit: cover;
+}
 
 p {
     font-size: 16px;

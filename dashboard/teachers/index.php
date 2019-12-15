@@ -27,7 +27,11 @@ $teachers = (new App\Controllers\Dashboard\TeacherController)->index();
         <?php foreach($teachers as $teacher): ?>
           <tr>
             <th width="20">
-              <img src="<?= ROOT_PATH. $teacher->avater ?>" height="42" width="42">
+              <img 
+              class="rounded-circle image-fit"
+              src="<?= ROOT_PATH. $teacher->avater ?>"
+              height="42"
+              width="42">
             </th>
             <th><?= $teacher->full_name ?></th>
             <th><?= $teacher->username ?></th>
