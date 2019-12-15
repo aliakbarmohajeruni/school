@@ -15,7 +15,7 @@
 
   <div class="sidenav">
     <a href="<?= ROOT ?>dashboard/">داشبورد</a>
-    
+
     <a class="dropdown-btn">مدرسان
       <div class="dropdown-container">
         <a href="<?= ROOT ?>dashboard/teachers">لیست مدرسین</a>
@@ -36,8 +36,8 @@
     </a>
     <a class="dropdown-btn">اخبار
       <div class="dropdown-container">
-        <a href="#">لیست اخبار</a>
-        <a href="#">افزودن اخبار</a>
+        <a href="<?= ROOT ?>dashboard/news">لیست اخبار</a>
+        <a href="<?= ROOT ?>dashboard/news/create.php">افزودن اخبار</a>
       </div>
     </a>
 

@@ -47,7 +47,7 @@ $course = (new App\Controllers\Dashboard\CourseController)->edit();
             </div>
             <div class="form-group">
                 <label>تصویر شاخص</label>
-                <input type="file" name="image">
+                <input type="file" class="form-control-file" name="image">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-sm btn-dark btn-lg">ویرایش</button>
