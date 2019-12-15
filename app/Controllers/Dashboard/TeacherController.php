@@ -32,12 +32,17 @@ class TeacherController extends Controller {
                redirect('dashboard/teachers/create.php');
            }
 
+           if(!request()->hasFile('avater')){
+             flash()->danger('فایل عکس الزامی می باشد');
+             redirect('dashboard/teachers/create.php');
+           }
+
           (new Teacher)->create([
               'full_name' => request('full_name'),
               'bio' => request('bio'),
               'username' => request('username'),
               'password' => request('password'),
-              'avater' => 'images/profiles/original.png'
+              'avater' =>  upload('avater', 'images\profiles')
           ]);
 
           flash()->success('باموفقیت اطلاعات مدرس ذخیره شد.');
@@ -81,13 +86,21 @@ class TeacherController extends Controller {
            redirect("dashboard/teachers/edit.php?id={$id}");
        }
 
-      (new Teacher)->update($id, [
-          'full_name' => request('full_name'),
-          'bio' => request('bio'),
-          'username' => request('username'),
-          'password' => request('password'),
-          'avater' => 'images/profiles/original.png'
-      ]);
+       $data = [
+           'full_name' => request('full_name'),
+           'bio' => request('bio'),
+           'username' => request('username'),
+           'password' => request('password'),
+
+       ];
+
+      if(request()->hasFile('avater')){
+        $data = array_merge($data, [
+          'avater' =>  upload('avater', 'images\profiles')
+        ]);
+      }
+
+      (new Teacher)->update($id, $data);
 
       flash()->success('باموفقیت اطلاعات مدرس ذخیره شد.');
       redirect('dashboard/teachers/');

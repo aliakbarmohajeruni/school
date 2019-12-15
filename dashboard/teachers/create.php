@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
       <div class="col-6">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>نام مدرس</label>
                 <input type="text" name="full_name" class="form-control" value="<?=old('full_name')?>">
@@ -26,6 +26,10 @@
             <div class="form-group">
                 <label>رمز عبور</label>
                 <input type="password" name="password" class="form-control" value="<?=old('password')?>">
+            </div>
+            <div class="form-group">
+                <label>آواتار</label>
+                <input type="file" class="form-control-file" name="avater">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-sm btn-dark">ثبت مدرس</button>
