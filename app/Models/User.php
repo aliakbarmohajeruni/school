@@ -30,6 +30,16 @@ class User extends DB
          return false;
     }
 
+    public function info()
+    {
+      if(session('username')) {
+             $user = $this->find('username' , session('username'));
+             if($user)
+                 return $user;
+         }
+         return false;
+    }
+
     public function logout()
     {
        session_destroy();
