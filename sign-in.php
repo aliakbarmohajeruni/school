@@ -30,4 +30,4 @@
   </div>
 </div>
 
-<?php viewRender('Page/layout.php' , 'login page'); ?>
+<?php viewRender('Page/layout.php' , 'صفحه ورود مدیریتی'); ?>

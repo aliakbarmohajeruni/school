@@ -18,7 +18,7 @@ use App\Models\News;
                     <div class="card-body d-flex flex-column bd-highlight">
                         <div class="flex-sm-grow-1"><?= $course->title ?></div>
                         <div class="body-course">
-                            <a href="#" class="btn btn-link ">مشاهده دوره</a>
+                            <a href="<?= ROOT ?>course.php?id=<?= $course->id ?>" class="btn btn-link ">مشاهده دوره</a>
                             <p class="p-10">
                                  <?= number_format($course->price) ?> تومان
                             </p>
@@ -45,7 +45,7 @@ use App\Models\News;
                         <img src="<?= ROOT_PATH. $item->image ?>" class="object-fit-cover" alt="<?= $item->title ?>">
                     </div>
                     <div class=" mt_news_style_1_description p-2">
-                        <a href=""><?= $item->title ?></a>
+                        <a href="<?= ROOT ?>news.php?id=<?= $item->id ?>"><?= $item->title ?></a>
                         <p><?=  substr($item->content, 0, 100). '...' ?></p>
                     </div>
 
@@ -57,4 +57,4 @@ use App\Models\News;
     </div>
 </div>
 
-<?php viewRender('Home/layout.php' , 'Home page'); ?>
+<?php viewRender('Home/layout.php' , 'وب سایت آموزشی'); ?>
