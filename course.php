@@ -1,5 +1,6 @@
 <?php require_once  __DIR__ .'./bootstrap/autoload.php';
 $course = (new App\Controllers\HomeController)->course();
+(new App\Controllers\HomeController)->pay($course);
 ?>
 
 <div class="container">
@@ -9,23 +10,32 @@ $course = (new App\Controllers\HomeController)->course();
         <div class="card text-black bg-default mt-4 " style="max-width: 18rem;">
           <div class="card-header">اطلاعات دوره</div>
           <div class="card-body">
-            <!-- <h6 class="card-title ">برای دسترسی به این دوره نیاز است عضو ویژه سایت باشید</h6> -->
+            <?php if(!auth()->check()): ?>
+              <h6 class="card-title ">برای دسترسی به این دوره نیاز است عضو ویژه سایت باشید</h6>
+            <?php endif; ?>
             <div class="card-text">
               <table width="100%">
                 <tr height="40">
-                  <th>زمان برگزاری</th>
-                  <td><?= date("d - M - Y", strtotime($course->date_held)) ?></td>
+                  <td colspan="3" align="center">
+                    <img class="rounded-circle image-fit" src="<?= ROOT_PATH . ((new \App\Models\Teacher)->find('id' ,$course->teacher_id))->avater ?>" height="52" width="52">
+                  </td>
                 </tr>
                 <tr height="40">
                   <th>نام مدرس</th>
                   <td><?= ((new \App\Models\Teacher)->find('id' ,$course->teacher_id))->full_name ?></td>
                 </tr>
                 <tr height="40">
+                  <th>زمان برگزاری</th>
+                  <td><?= date("d - M - Y", strtotime($course->date_held)) ?></td>
+                </tr>
+                <tr height="40">
                   <th>تعداد ظرفیت</th>
                   <td><?= $course->capacity ?> نفر </td>
                 </tr>
               </table>
-              <a href="#" class="btn btn-outline-primary btn-block mt-3">خرید دوره</a>
+              <?php if(auth()->check()): ?>
+                <a href="<?=ROOT?>course.php?id=<?=$course->id?>&buy=true" class="btn btn-outline-primary btn-block mt-3">خرید دوره</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

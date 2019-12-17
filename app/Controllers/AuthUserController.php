@@ -9,7 +9,7 @@ class AuthUserController extends Controller {
   {
 
     if(auth()->check())
-        redirect();
+        redirect('/');
 
     if(request()->isPost()){
 
@@ -29,11 +29,11 @@ class AuthUserController extends Controller {
 
        if(!$auth->login()){
           flash()->danger('.نام کاربری ویا رمز عبور شما صحیح نمی باشد');
-          redirect();
+          redirect('/');
        }
 
       flash()->success('.باموفقیت وارد پنل مدیریت شدید');
-      redirect('sadfgfdsagdagsd/');
+      redirect('user/index.php');
 
     }
 
@@ -44,7 +44,7 @@ class AuthUserController extends Controller {
   {
 
     if(auth()->check())
-        redirect();
+        redirect('/');
 
     if(request()->isPost()){
 
@@ -56,7 +56,7 @@ class AuthUserController extends Controller {
        ];
 
        if(!validation(request()->all() , $rules)) {
-           redirect();
+           redirect('/');
            return;
        }
 
@@ -66,18 +66,18 @@ class AuthUserController extends Controller {
            'username' => request('username'),
            'password' => request('password'),
        ]);
-       
+
        $auth = (new User);
        $auth->username = request('username');
        $auth->password = request('password');
 
        if(!$auth->login()){
-          flash()->danger('.نام کاربری ویا رمز عبور شما صحیح نمی باشد');
-          redirect();
+          flash()->danger('نام کاربری شما مشکلی ندارد');
+          redirect('/');
        }
 
-      flash()->success('.باموفقیت وارد پنل مدیریت شدید');
-      redirect('sadfgfdsagdagsd/');
+      flash()->success('باموفقیت وارد پنل کاربری شدید');
+      redirect('user/index.php');
 
     }
 
@@ -86,10 +86,10 @@ class AuthUserController extends Controller {
   public function logout()
   {
     if(!auth()->check())
-        redirect();
+        redirect('/');
 
      auth()->logout();
-     redirect();
+     redirect('/');
   }
 
 

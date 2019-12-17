@@ -42,6 +42,8 @@
     </a>
 
     <a href="#contact">پرداختی</a>
+    <a href="<?= ROOT ?>" target="_blank">وب سایت</a>
+
     <div class="mt_exit_panel my-4">
       <a class="btn btn-block btn-danger" href="<?=ROOT?>dashboard/logout.php">خروج از پنل</a>
     </div>

@@ -199,6 +199,11 @@ body {
   height: 171px;
   object-fit: cover;
 }
+
+.image-fit{
+  object-fit: cover;
+}
+
 .mt_auth_section{
     background-color: #f1f1f1;
 }

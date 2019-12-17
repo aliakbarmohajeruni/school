@@ -5,7 +5,7 @@ use App\Models\News;
 
 ?>
 
-<div class="col-md-12 mt_gray_bgc p-5">
+<div class="col-md-12 mt_gray_bgc p-5" id="course">
     <div class="container">
         <div class="mt_title_bar">
             <h2>دوره ها</h2>
@@ -31,7 +31,7 @@ use App\Models\News;
     </div>
 </div>
 
-<div class="col-md-12 p-5">
+<div class="col-md-12 p-5" id="news">
     <div class="container">
         <div class="mt_title_bar">
             <h2>جدید ترین اخبار</h2>

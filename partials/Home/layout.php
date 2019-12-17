@@ -24,10 +24,10 @@
         <a class="nav-link" href="<?= ROOT?>">صفحه اصلی <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">دوره ها </a>
+        <a class="nav-link" href="#course">دوره ها </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">اخبار</a>
+        <a class="nav-link" href="#news">اخبار</a>
       </li>
     </ul>
   </div>
@@ -103,10 +103,10 @@
       <?php else: ?>
         <ul class="navbar-nav px-2">
           <li class="nav-item active">
-            <a class="nav-link" href="#">صفحه کاربری (<?= (auth()->info())->full_name ?>)</a>
+            <a class="nav-link" href="<?= ROOT ?>user/index.php">صفحه کاربری (<?= (auth()->info())->full_name ?>)</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="<?=ROOT?>logout.php">خروج</a>
+            <a class="nav-link" href="<?=ROOT?>user/logout.php">خروج</a>
           </li>
         </ul>
       <?php endif; ?>
