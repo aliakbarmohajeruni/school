@@ -13,7 +13,7 @@ class  NewsController extends Controller {
 
     public function index()
     {
-       return (new News)->all();
+       return (new News)->lasted()->all();
     }
 
     public function store()

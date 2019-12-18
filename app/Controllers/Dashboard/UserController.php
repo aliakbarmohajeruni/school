@@ -13,7 +13,7 @@ class UserController extends Controller {
 
     public function index()
     {
-       return (new User)->all();
+       return (new User)->lasted()->all();
     }
 
 

@@ -13,7 +13,7 @@ class CourseController extends Controller {
 
     public function index()
     {
-       return (new Course)->all();
+       return (new Course)->lasted()->all();
     }
 
     public function store()

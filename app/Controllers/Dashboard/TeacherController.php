@@ -13,7 +13,7 @@ class TeacherController extends Controller {
 
     public function index()
     {
-       return (new Teacher)->all();
+       return (new Teacher)->lasted()->all();
     }
 
 

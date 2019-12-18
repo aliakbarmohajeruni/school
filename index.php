@@ -12,7 +12,7 @@ use App\Models\News;
         </div>
         <div class="col-md-12 my-3">
             <div class="row">
-              <?php foreach ((new Course)->get() as $course): ?>
+              <?php foreach ((new Course)->lasted()->get() as $course): ?>
                 <div class="card col-md-3 p-0 mt_card">
                     <img src="<?= ROOT_PATH . $course->image ?>" class="card-img-top object-fit-cover" alt="<?= $course->title ?>">
                     <div class="card-body d-flex flex-column bd-highlight">
@@ -37,7 +37,7 @@ use App\Models\News;
             <h2>جدید ترین اخبار</h2>
         </div>
         <div class="row my-5">
-          <?php foreach (array_chunk((new News)->where('status', true)->get(), 2) as $items): ?>
+          <?php foreach (array_chunk((new News)->where('status', true)->lasted()->get(), 2) as $items): ?>
             <div class="col-md-6">
               <?php foreach ($items as $item): ?>
                 <div class="mt_news_style_1 col-md-12 p-0">

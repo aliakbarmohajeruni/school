@@ -13,7 +13,7 @@ class PaymentController extends Controller {
 
     public function index()
     {
-       return (new Payment)->all();
+       return (new Payment)->lasted()->all();
     }
 
     public function delete()
