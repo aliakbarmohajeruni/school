@@ -66,7 +66,7 @@ class Validation
     private function validateRequired ($item, $value, $parameter)
     {
         if ($value === '' || $value === NULL) {
-            $this->errors[$item][] = 'The ' . $item . ' field is required';
+            $this->errors[$item][] = "پرکردن فیلد {$item} الزامیست";
             return false;
         }
 
@@ -83,7 +83,7 @@ class Validation
     private function validateEmail ($item, $value, $parameter)
     {
         if (! filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            $this->errors[$item][] = 'The ' . $item . ' field should be a valid email addres';
+          $this->errors[$item][] = "فرمت ایمیل وارد شده صحیح نیست";
             return false;
         }
 
@@ -101,7 +101,7 @@ class Validation
     private function validateMin ($item, $value, $parameter)
     {
         if (strlen($value) >= $parameter == false) {
-            $this->errors[$item][] = 'The ' . $item . ' field should have a minimum length of ' . $parameter;
+             $this->errors[$item][] = "طول فیلد {$item} کمتر از {$parameter} کاراکتر است ";
             return false;
         }
 
