@@ -34,6 +34,9 @@ $user = function(int $id){
               تاریخ پرداخت
             </th>
             <th>
+              مبلغ پرداختی
+            </th>
+            <th>
               وضعیت
             </th>
             <th>
@@ -48,6 +51,7 @@ $user = function(int $id){
             <th><?= $payment->track_id ?></th>
             <th><?= $user($payment->user_id)->full_name ?></th>
             <th><?= $payment->created_at ?></th>
+            <td><?= number_format($payment->price) ?> تومان </td>
             <td>
               <?php if($payment->status): ?>
                 <span class="badge badge-success">پرداخت شده</span>
