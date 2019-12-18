@@ -78,6 +78,33 @@ class HomeController extends Controller {
 
         return false;
     }
+
+    public function getCertificate($id)
+    {
+        if((request()->input('course',false)) and auth()->check())
+        {
+          $course = function(int $id){
+            return (new Course)->find('id' ,$id);
+          };
+
+          $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('./../public/certificate.docx');
+          $templateProcessor->setValue(
+              ['full_name', 'course', 'date_held'],
+              [
+               auth()->info()->full_name,
+               $course($id)->title,
+               $course($id)->date_held
+             ]
+           );
+          $name = time();
+          $templateProcessor->saveAs("./{$name}.docx");
+          header("Content-type:application/doxc");
+          header("Content-Disposition:attachment;filename=$name.docx");
+          readfile("./{$name}.docx");
+          unlink("./{$name}.docx");
+
+        }
+    }
 }
 
 ?>

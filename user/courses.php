@@ -30,6 +30,7 @@ $teacher = function(int $id){
               <tr>
                 <th colspan="2">عنوان دوره</th>
                 <th colspan="2">نام مدرس</th>
+                <th>گواهینامه</th>
                 <th>تاریخ برگزاری</th>
               </tr>
             </thead>
@@ -52,6 +53,12 @@ $teacher = function(int $id){
                   height="42">
                 </th>
                 <td><?= $teacher($course($payment->course_id)->teacher_id)->full_name ?></td>
+                <td>
+                  <a
+                  href="<?=ROOT?>user/certificate.php?course=<?=$payment->course_id?>"
+                  class="btn btn-info btn-sm"
+                  >دانلود گواهینامه دوره</a>
+                </td>
                 <td><?= date("d - M - Y", strtotime($course($payment->course_id)->date_held)) ?></td>
               </tr>
               <?php endforeach; ?>
