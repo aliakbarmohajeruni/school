@@ -41,6 +41,13 @@
       </div>
     </a>
 
+    <a class="dropdown-btn">مدیریت پیام های کوتاه
+      <div class="dropdown-container">
+        <a href="<?= ROOT ?>dashboard/sms">لیست پیام ها</a>
+        <a href="<?= ROOT ?>dashboard/sms/create.php">ارسال پیام کوتاه</a>
+      </div>
+    </a>
+
     <a href="<?= ROOT ?>dashboard/payments">پرداختی</a>
     <a href="<?= ROOT ?>" target="_blank">وب سایت</a>
 
