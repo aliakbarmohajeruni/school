@@ -144,7 +144,7 @@ error_log(print_r($query,true));
 
     public function find($name , $value)
     {
-        return $this->select()->where($name , $value)->first();
+        return $this->select()->where($name ,$value)->first();
     }
 
     public function first()

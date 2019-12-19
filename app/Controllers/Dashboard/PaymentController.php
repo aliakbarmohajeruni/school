@@ -2,6 +2,7 @@
 
 use App\Controllers\Controller as Controller;
 use App\Models\Payment;
+use App\Models\Course;
 
 class PaymentController extends Controller {
 
@@ -21,10 +22,17 @@ class PaymentController extends Controller {
       if(empty(request()->input('id',false)))
             redirect('dashboard/payments');
 
-        if(!(new Payment())->find('id' , request()->input('id',false)))
+      if(!(new Payment())->find('id' , request()->input('id',false)))
           redirect('dashboard/payments');
 
-       (new Payment())->delete(request()->input('id',false));
+      $payment = ((new Payment())->find('id' , request()->input('id',false)));
+
+      (new Course)->capacityIncrement(
+        $payment->course_id
+      );
+      
+      (new Payment)->delete(request()->input('id',false));
+
        flash()->info('پرداختی مورد نظر پاک شد');
        redirect('dashboard/payments');
     }

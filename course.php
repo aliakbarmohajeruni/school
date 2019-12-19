@@ -1,6 +1,15 @@
 <?php require_once  __DIR__ .'./bootstrap/autoload.php';
 $course = (new App\Controllers\HomeController)->course();
 (new App\Controllers\HomeController)->pay($course);
+
+
+$capacityCheck = function ($capacity)
+{
+  if($capacity <= 0){
+    flash()->now()->danger('با عرض پوزش ظرفیت این دوره تکمیل شده است');
+  }
+}
+
 ?>
 
 <div class="container">
@@ -31,9 +40,10 @@ $course = (new App\Controllers\HomeController)->course();
                 <tr height="40">
                   <th>تعداد ظرفیت</th>
                   <td><?= $course->capacity ?> نفر </td>
+                  <?php $capacityCheck($course->capacity) ?>
                 </tr>
               </table>
-              <?php if(auth()->check()): ?>
+              <?php if(auth()->check() AND ($course->capacity > 0)): ?>
                 <a href="<?=ROOT?>course.php?id=<?=$course->id?>&buy=true" class="btn btn-outline-primary btn-block mt-3">خرید دوره</a>
               <?php endif; ?>
             </div>

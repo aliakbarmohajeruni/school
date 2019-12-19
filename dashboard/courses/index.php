@@ -38,7 +38,13 @@ $courses = (new App\Controllers\Dashboard\CourseController)->index();
         <?php foreach($courses as $course): ?>
           <tr>
             <th><?= $course->title ?></th>
-            <th><?= $course->capacity ?></th>
+            <th>
+              <?php if($course->capacity <= 0): ?>
+                <span class="badge badge-danger">ظرفیت تمام شده</span>
+              <?php else: ?>
+                <?= $course->capacity ?>
+              <?php endif; ?>
+            </th>
             <th><?= ((new \App\Models\Teacher)->find('id' ,$course->teacher_id))->full_name ?></th>
             <th><?= $course->date_held ?></th>
             <th><?= number_format($course->price) ?> تومان</th>

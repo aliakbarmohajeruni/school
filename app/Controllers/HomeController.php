@@ -46,6 +46,12 @@ class HomeController extends Controller {
 
       if(request()->input('buy',false) and auth()->check()){
 
+
+        if($course->capacity <= 0){
+            flash()->danger('ظرفیت دوره تکمیل شده است');
+            redirect('/');
+        }
+
         if($this->checkPayment($course->id)){
           flash()->info('قبلا دراین دوره ثبت نام کردید');
           redirect('user/pay.php');
@@ -58,6 +64,8 @@ class HomeController extends Controller {
             'price' => $course->price,
             'user_id' => (auth()->info())->id
          ]);
+
+         (new Course)->capacityDecrement($course->id);
 
          flash()->success('خرید شما باموفقیت ثبت شد');
          redirect('user/pay.php');
